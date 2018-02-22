@@ -1,11 +1,9 @@
 class MemosController < ApplicationController
   def show
-    # @memo = Memo.find(1)
+    @memo = Memo.find(params[:id].to_i).content
+    BoardChannel.broadcast_to('content', @memo)
   end
 
-  def test
-    tmp = Memo.find(params[:id].to_i).content
-    # BoardChannel.broadcast_to('content', data['content'])
-    BoardChannel.broadcast_to('content', tmp)
+  def board
   end
 end
