@@ -8,8 +8,8 @@ class BoardChannel < ApplicationCable::Channel
   end
 
   def put_memo(data)
-    tmp = Memo.find(data['content'].to_i).content
+    memo = Memo.find(data['content'].to_i).content
     # BoardChannel.broadcast_to('content', data['content'])
-    BoardChannel.broadcast_to('content', tmp)
+    BoardChannel.broadcast_to('content', memo)
   end
 end

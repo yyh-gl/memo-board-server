@@ -6,9 +6,10 @@ App.board = App.cable.subscriptions.create "BoardChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    li = document.createElement('li')
-    li.textContent = data
-    document.getElementById('message-list').appendChild(li)
+    document.getElementById('message-list').removeChild(document.getElementById('message-list').firstChild)
+    h = document.createElement('h1')
+    h.textContent = data	
+    document.getElementById('message-list').appendChild(h)
 
   put_memo: (msg) ->
     @perform('put_memo', { content: msg })
