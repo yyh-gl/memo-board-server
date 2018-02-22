@@ -1,2 +1,5 @@
-<h1>Memos#show</h1>
-<p>Find me in app/views/memos/show.html.erb</p>
+<%= form_tag '#', id: 'content' do %>
+  <%= text_field_tag 'body' %>
+<% end %>
+<ul id="message-list">
+</ul>

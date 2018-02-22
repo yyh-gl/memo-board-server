@@ -6,4 +6,9 @@ App.board = App.cable.subscriptions.create "BoardChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    # Called when there's incoming data on the websocket for this channel
+    li = document.createElement('li')
+    li.textContent = data
+    document.getElementById('message-list').appendChild(li)
+
+  put_memo: (msg) ->
+    @perform('put_memo', { content: msg })
