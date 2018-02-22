@@ -14,10 +14,3 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-
-window.addEventListener('load', () => {
-   document.getElementById('content').onsubmit = () => {
-       App.board.put_memo(document.getElementById('body').value);
-       return false;
-   }
-});
